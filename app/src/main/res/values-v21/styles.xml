@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <!--<item name="android:colorBackground">@color/my_app_background_color</item>-->
+        <!--<item name="colorError">@color/my_app_error_color</item>-->
+
+        <!-- New MaterialComponents attributes. -->
+        <item name="colorPrimaryVariant">@color/primaryLightColor</item>
+        <item name="colorSecondaryVariant">@color/secondaryLightColor</item>
+
+        <!--Text color on Primary and Secondary colors-->
+        <item name="colorOnPrimary">@color/primaryTextColor</item>
+        <item name="colorOnSecondary">@color/secondaryTextColor</item>
+
+        <item name="android:statusBarColor">@color/primaryDarkColor</item>
+        <item name="android:navigationBarColor">@color/secondaryTextColor</item>
+    </style>
+</resources>
