@@ -1,5 +1,8 @@
 package com.zo0okadev.demoregisterform;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -31,6 +34,11 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (!isConnected()) {
+            Toast.makeText(this, "No internet connection found \n Please check your connection",
+                    Toast.LENGTH_SHORT).show();
+        }
+
         initializeViews();
 
         myViewModel = ViewModelProviders.of(this).get(MyViewModel.class);
@@ -45,6 +53,15 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
             }
         });
 
+    }
+
+    private boolean isConnected() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork != null &&
+                activeNetwork.isConnectedOrConnecting();
     }
 
     private void initializeViews() {
@@ -67,7 +84,13 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registerUser();
+                if (isConnected()) {
+                    registerUser();
+                } else {
+                    Toast.makeText(MainActivity.this,
+                            "No internet connection Found \n Please check your connection and try again.",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
