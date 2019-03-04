@@ -8,11 +8,11 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-class MyViewModel extends ViewModel {
+public class MyViewModel extends ViewModel {
 
     private final MutableLiveData<String> responseMessage = new MutableLiveData<>();
 
-    void register(User user) {
+    public void register(User user) {
         if (user.isValid()) {
             ApiRequest apiRequest = new ApiRequest(user);
             ApiClient.registerUser(ApiClient.get(), apiRequest, new ApiClient.StatusCallback() {
@@ -29,7 +29,7 @@ class MyViewModel extends ViewModel {
         }
     }
 
-    LiveData<String> getToastMessage() {
+    public LiveData<String> getToastMessage() {
         return responseMessage;
     }
 }

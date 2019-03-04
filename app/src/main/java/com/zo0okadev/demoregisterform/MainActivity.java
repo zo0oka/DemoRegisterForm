@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
     private static final String TAG = MainActivity.class.getSimpleName();
     private TextInputLayout nameLayout, emailLayout, passwordLayout, phoneLayout;
     private TextInputEditText nameField, emailField, passwordField, phoneField;
-    private Button registerButton;
     private MyViewModel myViewModel;
 
     @Override
@@ -74,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
         emailField = findViewById(R.id.email_field);
         passwordField = findViewById(R.id.password_field);
         phoneField = findViewById(R.id.phone_field);
-        registerButton = findViewById(R.id.register_button);
+        Button registerButton = findViewById(R.id.register_button);
 
         nameField.addTextChangedListener(this);
         emailField.addTextChangedListener(this);
